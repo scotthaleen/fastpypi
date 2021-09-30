@@ -34,7 +34,7 @@ pip install -U --no-deps --trusted-host localhost --extra-index-url=http://local
 
 ### Links
 
-https://packaging.python.org/tutorials/packaging-projects/
+https://packaging.python.org/tutorials/packaging-projects/<br/>
 https://python-poetry.org/
 
 ## Repo
