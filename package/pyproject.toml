@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "fastpypi-package"
+version = "0.1.0"
+description = ""
+authors = []
+
+packages = [
+    { include = "fastpypi_package" },
+    { include = "fastpypi_package/**/*.py" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+build = "^0.7.0"
+mypy = "^0.812"
+black = "^21.5b1"
+isort = "^5.8.0"
+autoflake = "^1.3.1"
+flake8 = "^3.7.9"
+pytest = "^6.2.4"
+pytest-cov = "^2.8.1"
+
+
+[tool.poetry.scripts]
+build = "dev.script:build"
+lint = "dev.script:lint"
+format = "dev.script:format"
+coverage = "dev.script:coverage"
+script = "dev.script:run"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

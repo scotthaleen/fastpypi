@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+
+  api:
+    build: api/
+    volumes:
+      - repo_dir:/home/apps/repo
+    ports:
+      - 8000:8000
+
+  nginx_router:
+    image: nginx
+    environment:
+      API_HOST: api
+    ports:
+      - 8080:8080
+    volumes:
+      - ${PWD}/nginx/default.conf:/etc/nginx/templates/default.conf.template
+      - repo_dir:/opt/repo
+
+volumes:
+  repo_dir:
+    driver: local
+    driver_opts:
+      type: volume
+      device: ${PWD}/repo
+      o: bind
